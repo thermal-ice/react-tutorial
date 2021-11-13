@@ -1,4 +1,7 @@
 import React from 'react';
+import '../css/ImageList.css';
+import './ImageCard';
+import ImageCard from "./ImageCard";
 
 interface ImageListProps{
     images: Array<ImageFields>;
@@ -12,11 +15,15 @@ interface ImageFields{
 
 
 const ImageList = ({images}: ImageListProps) =>{
+    // const myImages = images.map((image:ImageFields) =>{
+    //     return <img key={image.id} alt={image.description} src={image.urls.regular}/>;
+    // })
+
     const myImages = images.map((image:ImageFields) =>{
-        return <img key={image.id} alt={image.description} src={image.urls.regular}/>;
+        return <ImageCard key={image.id} image={image}/>;
     })
 
-    return <div> {myImages}</div>;
+    return <div className="image-list"> {myImages}</div>;
 }
 
 
